@@ -3,9 +3,11 @@ package ro.pub.cs.systems.eim.practicaltest01var04;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -85,20 +87,32 @@ public class PracticalTest01Var04MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
         EditText editText1 = (EditText)findViewById(R.id.editText1);
         EditText editText2 = (EditText)findViewById(R.id.editText2);
+        CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkBox1);
+        CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
         savedInstanceState.putString(Constants.TEXT1_EDIT_TEXT, editText1.getText().toString());
         savedInstanceState.putString(Constants.TEXT2_EDIT_TEXT, editText2.getText().toString());
+        savedInstanceState.putBoolean(Constants.CHECK1_BOX, checkBox1.isChecked());
+        savedInstanceState.putBoolean(Constants.CHECK2_BOX, checkBox2.isChecked());
     }
 
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         if (savedInstanceState.containsKey(Constants.TEXT1_EDIT_TEXT)) {
-            EditText usernameEditText = (EditText)findViewById(R.id.editText1);
-            usernameEditText.setText(savedInstanceState.getString(Constants.TEXT1_EDIT_TEXT));
+            EditText editText1 = (EditText)findViewById(R.id.editText1);
+            editText1.setText(savedInstanceState.getString(Constants.TEXT1_EDIT_TEXT));
         }
         if (savedInstanceState.containsKey(Constants.TEXT2_EDIT_TEXT)) {
-            EditText passwordEditText = (EditText)findViewById(R.id.editText2);
-            passwordEditText.setText(savedInstanceState.getString(Constants.TEXT2_EDIT_TEXT));
+            EditText editText2 = (EditText)findViewById(R.id.editText2);
+            editText2.setText(savedInstanceState.getString(Constants.TEXT2_EDIT_TEXT));
+        }
+        if (savedInstanceState.containsKey(Constants.CHECK1_BOX)) {
+            CheckBox check1 = (CheckBox)findViewById(R.id.checkBox1);
+            check1.setChecked(savedInstanceState.getBoolean(Constants.CHECK1_BOX));
+        }
+        if (savedInstanceState.containsKey(Constants.CHECK2_BOX)) {
+            CheckBox check2 = (CheckBox)findViewById(R.id.checkBox2);
+            check2.setChecked(savedInstanceState.getBoolean(Constants.CHECK2_BOX));
         }
     }
 }
