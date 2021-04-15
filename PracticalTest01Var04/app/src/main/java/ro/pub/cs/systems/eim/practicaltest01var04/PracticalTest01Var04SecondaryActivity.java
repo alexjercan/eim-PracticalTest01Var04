@@ -2,18 +2,14 @@ package ro.pub.cs.systems.eim.practicaltest01var04;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ComponentName;
+import android.app.Activity;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class PracticalTest01Var04SecondaryActivity extends AppCompatActivity {
-
-    private TextView textView1;
-    private TextView textView2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,5 +24,31 @@ public class PracticalTest01Var04SecondaryActivity extends AppCompatActivity {
 
         textView1.setText(text1);
         textView2.setText(text2);
+
+        Button button1 = (Button) findViewById(R.id.button1);
+        button1.setOnClickListener(okButtonClickListener);
+
+        Button button2 = (Button) findViewById(R.id.button2);
+        button2.setOnClickListener(cancelButtonClickListener);
+    }
+
+    private CancelButtonClickListener okButtonClickListener = new CancelButtonClickListener();
+    private class OkButtonClickListener implements Button.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            setResult(Activity.RESULT_OK, new Intent());
+            finish();
+        }
+    }
+
+    private CancelButtonClickListener cancelButtonClickListener = new CancelButtonClickListener();
+    private class CancelButtonClickListener implements Button.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            setResult(Activity.RESULT_CANCELED, new Intent());
+            finish();
+        }
     }
 }
