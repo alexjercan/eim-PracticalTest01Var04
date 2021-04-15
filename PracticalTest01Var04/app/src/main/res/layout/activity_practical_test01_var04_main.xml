@@ -23,25 +23,35 @@
             android:id="@+id/checkBox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:saveEnabled="false"/>
 
-        <TextView
-            android:id="@+id/textView1"
+        <EditText
+            android:id="@+id/editText1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:inputType="textPersonName"
+            android:saveEnabled="false">
+
+            <requestFocus />
+        </EditText>
 
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:text=""
+            android:saveEnabled="false"/>
 
-        <TextView
-            android:id="@+id/textView2"
+        <EditText
+            android:id="@+id/editText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:inputType="textPersonName"
+            android:saveEnabled="false">
+
+            <requestFocus />
+        </EditText>
 
     </androidx.gridlayout.widget.GridLayout>
 
@@ -51,11 +61,10 @@
         android:layout_height="wrap_content"
         android:text="Button" />
 
-    <EditText
-        android:id="@+id/label"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="" />
+        android:text="TextView" />
+
 </LinearLayout>
