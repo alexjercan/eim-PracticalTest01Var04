@@ -32,7 +32,7 @@ public class PracticalTest01Var04SecondaryActivity extends AppCompatActivity {
         button2.setOnClickListener(cancelButtonClickListener);
     }
 
-    private CancelButtonClickListener okButtonClickListener = new CancelButtonClickListener();
+    private OkButtonClickListener okButtonClickListener = new OkButtonClickListener();
     private class OkButtonClickListener implements Button.OnClickListener {
 
         @Override

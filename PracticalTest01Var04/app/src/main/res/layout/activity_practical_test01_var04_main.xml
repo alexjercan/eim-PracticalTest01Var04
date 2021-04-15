@@ -11,7 +11,7 @@
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Secondary" />
 
     <androidx.gridlayout.widget.GridLayout
         android:layout_width="match_parent"
@@ -59,7 +59,7 @@
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Display" />
 
     <TextView
         android:id="@+id/textView"

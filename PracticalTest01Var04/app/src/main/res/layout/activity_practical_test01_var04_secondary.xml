@@ -31,12 +31,12 @@ tools:context="ro.pub.cs.systems.eim.practicaltest01var04.PracticalTest01Var04Se
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="OK" />
 
     <Button
     android:id="@+id/button2"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Button" />
+    android:text="Cancel" />
 
 </LinearLayout>
