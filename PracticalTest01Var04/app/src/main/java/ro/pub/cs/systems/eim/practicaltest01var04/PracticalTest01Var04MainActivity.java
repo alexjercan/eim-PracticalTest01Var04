@@ -2,6 +2,7 @@ package ro.pub.cs.systems.eim.practicaltest01var04;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +18,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PracticalTest01Var04MainActivity extends AppCompatActivity {
+    private final Button1ClickListener button1ClickListener = new Button1ClickListener();
+
+    private class Button1ClickListener implements Button.OnClickListener {
+
+        @Override
+        public void onClick(View view) {
+            EditText editText1 = (EditText) findViewById(R.id.editText1);
+            CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkBox1);
+            EditText editText2 = (EditText) findViewById(R.id.editText2);
+            CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
+
+
+            String text1 = "";
+            String text2 = "";
+
+            if (checkBox1.isChecked()) {
+                text1 = editText1.getText().toString();
+            }
+            if (checkBox2.isChecked()) {
+                text2 = editText2.getText().toString();
+            }
+
+            Intent intent = new Intent(PracticalTest01Var04MainActivity.this, PracticalTest01Var04SecondaryActivity.class);
+            intent.setAction(Constants.ACTION_STRING);
+            intent.putExtra(Constants.TEXT1_EDIT_TEXT, text1);
+            intent.putExtra(Constants.TEXT2_EDIT_TEXT, text2);
+            intent.setType("text/plain");
+            startActivity(intent);
+        }
+    }
 
     private final Button2ClickListener button2ClickListener = new Button2ClickListener();
 
@@ -70,6 +101,9 @@ public class PracticalTest01Var04MainActivity extends AppCompatActivity {
         Button button2 = (Button) findViewById(R.id.button2);
         button2.setOnClickListener(button2ClickListener);
 
+        Button button1 = (Button) findViewById(R.id.button1);
+        button1.setOnClickListener(button1ClickListener);
+
         if (savedInstanceState != null) {
             if (savedInstanceState.containsKey(Constants.TEXT1_EDIT_TEXT)) {
                 EditText editText = (EditText)findViewById(R.id.editText1);
@@ -78,6 +112,14 @@ public class PracticalTest01Var04MainActivity extends AppCompatActivity {
             if (savedInstanceState.containsKey(Constants.TEXT2_EDIT_TEXT)) {
                 EditText editText = (EditText)findViewById(R.id.editText2);
                 editText.setText(savedInstanceState.getString(Constants.TEXT2_EDIT_TEXT));
+            }
+            if (savedInstanceState.containsKey(Constants.CHECK1_BOX)) {
+                CheckBox check1 = (CheckBox)findViewById(R.id.checkBox1);
+                check1.setChecked(savedInstanceState.getBoolean(Constants.CHECK1_BOX));
+            }
+            if (savedInstanceState.containsKey(Constants.CHECK2_BOX)) {
+                CheckBox check2 = (CheckBox)findViewById(R.id.checkBox2);
+                check2.setChecked(savedInstanceState.getBoolean(Constants.CHECK2_BOX));
             }
         }
     }
